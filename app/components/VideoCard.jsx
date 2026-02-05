@@ -1,15 +1,20 @@
-// VideoCard.jsx
-import React from "react";
 
-export default function VideoCard({ thumbnail, title, channel, views }) {
+import React from "react";
+import { useRouter } from "next/navigation";
+
+
+export default function VideoCard({ thumbnail, title, channel, views, link }) {
+  const router = useRouter();
+  //create a function to push router and link with video title
   return (
-    <div className="w-full max-w-xs cursor-pointer">
+    <div className="w-full  cursor-pointer">
       {/* Thumbnail */}
-      <div className="relative w-full h-48 overflow-hidden rounded-lg">
+      <div className="relative w-full aspect-[16/9]  overflow-hidden rounded-lg">
         <img
           src={thumbnail}
           alt={title}
           className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+          onClick={() => router.push(`/VideoPage/${title}`)} // create a function to push router and link with video title
         />
       </div>
 
