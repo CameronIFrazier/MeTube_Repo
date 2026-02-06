@@ -30,75 +30,13 @@ export default function MeTube() {
         </section>
         <section className="grid grid-cols-3 items-center justify-center ml-8 mt-8 mr-8 gap-4">
             <VideoCard
-        thumbnail="https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg" //
-        title="Never Gonna Give You Up"
-        channel="RickAstleyVEVO"
-        views="1.2M"
-        link = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-      />
-       <VideoCard
-        thumbnail="https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg" //
-        title="Never Gonna Give You Up"
-        channel="RickAstleyVEVO"
-        views="1.2M"
-        link = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-      />
-       <VideoCard
-        thumbnail="https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg" //
-        title="Never Gonna Give You Up"
-        channel="RickAstleyVEVO"
-        views="1.2M"
-        link = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-      />
-       <VideoCard
-        thumbnail="https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg" //
-        title="Never Gonna Give You Up"
-        channel="RickAstleyVEVO"
-        views="1.2M"
-        link = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-      />
-       <VideoCard
-        thumbnail="https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg" //
-        title="Never Gonna Give You Up"
-        channel="RickAstleyVEVO"
-        views="1.2M"
-        link = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-      />
-       <VideoCard
-        thumbnail="https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg" //
-        title="Never Gonna Give You Up"
-        channel="RickAstleyVEVO"
-        views="1.2M"
-        link = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-      />
-       <VideoCard
-        thumbnail="https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg" //
-        title="Never Gonna Give You Up"
-        channel="RickAstleyVEVO"
-        views="1.2M"
-        link = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-      />
-       <VideoCard
-        thumbnail="https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg" //
-        title="Never Gonna Give You Up"
-        channel="RickAstleyVEVO"
-        views="1.2M"
-        link = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-      />
-       <VideoCard
-        thumbnail="https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg" //
-        title="Never Gonna Give You Up"
-        channel="RickAstleyVEVO"
-        views="1.2M"
-        link = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-      />
-       <VideoCard
-        thumbnail="https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg" //
-        title="Never Gonna Give You Up"
-        channel="RickAstleyVEVO"
-        views="1.2M"
-        link = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
-      />
+  id={1}
+  thumbnail="https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg"
+  title="Never Gonna Give You Up"
+  channel="RickAstleyVEVO"
+  views="1.2M"
+/>
+
           </section>
         </section>
        
