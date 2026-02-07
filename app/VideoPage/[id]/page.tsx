@@ -1,5 +1,6 @@
 "use client";
 
+import RecommendedVideoCard from "@/app/components/RecommendedVideoCard";
 import { useParams, useRouter } from "next/navigation";
 import { useState } from "react";
 import {
@@ -13,6 +14,7 @@ import {
 type Video = {
   title: string;
   s3link: string;
+  thumbnail: string;
   channel?: string;
   views?: number;
   uploadDate?: string;
@@ -29,36 +31,39 @@ export default function VideoPage() {
   const [disliked, setDisliked] = useState(false);
 
   const videos: Record<string, Video> = {
-    "1": {
-      title: "Never Gonna Give You Up",
-      s3link:
-        "https://metubebucketcf.s3.us-east-2.amazonaws.com/fortnite-clip.mp4",
-      channel: "RickAstleyVEVO",
-      views: 1200000,
-      uploadDate: "2 weeks ago",
-      description:
-        "Check out this amazing never gonna give you up moment! Don't miss the sick gameplay and epic moments throughout this video.",
-    },
-    "2": {
-      title: "Best Fortnite Clip Ever",
-      s3link:
-        "https://metubebucketcf.s3.us-east-2.amazonaws.com/fortnite-clip-2.mp4",
-      channel: "FortniteClips",
-      views: 950000,
-      uploadDate: "1 month ago",
-      description:
-        "This is the best Fortnite clip I've ever hit! Clutch moment in arena. Subscribe for more clips!",
-    },
-    "3": {
-      title: "Cool Coding Tutorial",
-      s3link:
-        "https://metubebucketcf.s3.us-east-2.amazonaws.com/coding-tutorial.mp4",
-      channel: "CodeMaster",
-      views: 50000,
-      uploadDate: "3 weeks ago",
-      description:
-        "Learn advanced JavaScript techniques in this comprehensive tutorial. Perfect for beginners to intermediate developers.",
-    },
+   "1": {
+    title: "Never Gonna Give You Up",
+    s3link:
+      "https://metubebucketcf.s3.us-east-2.amazonaws.com/fortnite-clip.mp4",
+    thumbnail:
+      "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+    channel: "RickAstleyVEVO",
+    views: 1200000,
+    uploadDate: "2 weeks ago",
+    description: "Default Description for video 1",
+  },
+  "2": {
+    title: "Best Fortnite Clip Ever",
+    s3link:
+      "https://metubebucketcf.s3.us-east-2.amazonaws.com/fortnite-clip-2.mp4",
+    thumbnail:
+      "https://metubebucketcf.s3.us-east-2.amazonaws.com/thumb2.jpg",
+    channel: "FortniteClips",
+    views: 950000,
+    uploadDate: "1 month ago",
+    description: "Vid 2 Description",
+  },
+  "3": {
+    title: "Cool Coding Tutorial",
+    s3link:
+      "https://metubebucketcf.s3.us-east-2.amazonaws.com/coding-tutorial.mp4",
+    thumbnail:
+      "https://metubebucketcf.s3.us-east-2.amazonaws.com/thumb3.jpg",
+    channel: "CodeMaster",
+    views: 50000,
+    uploadDate: "3 weeks ago",
+    description: "...",
+  },
   };
 
   const relatedVideos = Object.entries(videos)
@@ -84,9 +89,9 @@ export default function VideoPage() {
   }
 
   return (
-    <div className="text-white min-h-screen bg-[#181818] flex flex-col">
+    <div className="text-white min-h-screen w-full bg-[#181818] flex flex-col overflow-x-hidden">
       {/* // search bar */}
-      <div className="flex items-center justify-center w-full pb-4 pt-4 bg-[#181818]">
+      <div className="flex flex-colitems-center justify-center w-full pb-4 pt-4 bg-[#181818]">
         <div className="flex w-[450px] h-8 border border-gray-300 rounded-full overflow-hidden shadow-sm">
           <input
             type="text"
@@ -103,9 +108,9 @@ export default function VideoPage() {
               stroke="currentColor"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"
               />
             </svg>
@@ -113,9 +118,9 @@ export default function VideoPage() {
         </div>
       </div>
       {/* bg-[#181818] */}
-      <div className="w-[75%] ml-8 flex-1">
+      <div className=" ml-8 flex flex-row w-full">
         {/* Main Content */}
-        <div className="lg:col-span-2 ">
+        <div className="flex-1 max-w-[72%]">
           {/* Video Player */}
           <div className="bg-gray-900 rounded-xl overflow-hidden mb-6 ">
             <div className="aspect-video bg-black">
@@ -273,8 +278,27 @@ export default function VideoPage() {
               </div>
             ))}
           </div>
+          
         </div>
+       <div className="w-[28%] flex flex-col gap-2">
+  {relatedVideos.map((video) => (
+    <div
+      key={video.id}
+      onClick={() => router.push(`/VideoPage/${video.id}`)}
+    >
+      <RecommendedVideoCard
+        title={video.title}
+        channel={video.channel}
+        views={video.views}
+        thumbnail={video.thumbnail}
+      />
+    </div>
+  ))}
+</div>
+
+        
       </div>
+      
     </div>
   );
 }
