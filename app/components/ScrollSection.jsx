@@ -14,11 +14,8 @@ export default function ScrollSection() {
     {/* scrolbar css doesnt work  */}
     <section className="flex flex-col items-start justify-start w-[10%] h-full overflow-y-auto overflow-x-hidden scrollbar-none">          {/* MeTube Icon + Title */}
               
-              <div className="flex flex-row ml-2 items-center justify-start w-full p-1 mt-3">
-                <Image src={defaultImage} alt="Default" width={25} height={25}  />
-                <header className="pl-4"> MeTube</header>
-              </div>
-              <div className="flex flex-row ml-2 items-center text-xs justify-start hover:bg-[#3d3d3d] rounded-lg cursor-pointer w-full mt-4 p-1">
+              
+              <div className="flex flex-row ml-2 items-center text-xs justify-start hover:bg-[#3d3d3d] rounded-lg cursor-pointer w-full p-1">
                 <Image src={defaultImage} alt="Default" width={25} height={25} className="rounded-full"/>
                 <header className="pl-4"> Home</header>
               </div>
