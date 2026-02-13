@@ -106,7 +106,7 @@ export default function ScrollSection() {
         <hr className="w-full border-t border-white mt-4"></hr>
         {/* You */}
         <div className="flex flex-row ml-2 items-center text-xs justify-start  rounded-lg cursor-pointer w-full p-2 mt-4">
-          <header className="font-bold"> You</header>
+          <header className="font-bold"> Me</header>
         </div>
         <div className="flex flex-row ml-2 items-center text-xs justify-start hover:bg-[#3d3d3d] rounded-lg cursor-pointer w-full p-1">
           <svg
@@ -115,7 +115,7 @@ export default function ScrollSection() {
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="2"
+            strokeWidth="2"
           >
             <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
             <path d="M4 12H2m3.5-6.5L3.5 3.5" />
@@ -165,9 +165,9 @@ export default function ScrollSection() {
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
           >
             <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" />
             <line x1="3" y1="6" x2="21" y2="6" />

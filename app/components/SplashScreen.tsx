@@ -1,42 +1,71 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import ProgressBar from "@ramonak/react-progress-bar";
+import Image from "next/image";
 
 export default function SplashScreen() {
   const [visible, setVisible] = useState(true);
+  const [fading, setFading] = useState(false);
+  const [logoIn, setLogoIn] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setVisible(false), 2000);
-    return () => clearTimeout(timer);
+    // Trigger logo pop-in immediately
+    setLogoIn(true);
+
+    // Start fade slightly before unmount
+    const fadeTimer = setTimeout(() => setFading(true), 1700);
+
+    // Unmount splash after full duration
+    const removeTimer = setTimeout(() => setVisible(false), 2000);
+
+    // Lock scroll while splash is active
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      clearTimeout(fadeTimer);
+      clearTimeout(removeTimer);
+      document.body.style.overflow = "";
+    };
   }, []);
 
   if (!visible) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-white">
-      <div className="flex flex-col items-center animate-fade-out">
-        {/* YouTube Logo */}
-        <div className="animate-logo-pop">
-          <svg
-            viewBox="0 0 24 24"
-            className="h-24 w-24"
-            fill="none"
-          >
-            <rect
-              x="2"
-              y="6"
-              width="20"
-              height="12"
-              rx="3"
-              fill="#FF0000"
-            />
-            <polygon points="10,9 16,12 10,15" fill="white" />
-          </svg>
-        </div>
+    <div
+      className={`fixed inset-0 z-[9999] flex items-center justify-center bg-[var(--bg)]
+        transition-all duration-300 ease-out
+        ${fading ? "opacity-0 translate-y-2" : "opacity-100 translate-y-0"}
+      `}
+    >
+      <div className="flex items-center gap-4">
+        {/* Logo with subtle pop-in */}
+        <Image
+          src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg"
+          alt="MyTube Logo"
+          width={100}
+          height={100}
+          className={`transition-all duration-500 ease-out
+            ${logoIn ? "scale-100 opacity-100" : "scale-75 opacity-0"}
+          `}
+        />
 
-        {/* Loading bar */}
-        <div className="mt-4 h-1 w-32 overflow-hidden rounded bg-gray-200">
-          <div className="h-full bg-red-600 animate-loading-bar" />
+        {/* Splash text and progress bar */}
+        <div className="w-96 text-center">
+          <header className="text-3xl pb-2">MyTube</header>
+
+          <ProgressBar
+            completed={100}
+            bgColor="#FF0000"
+            baseBgColor="transparent"
+            height="4px"
+            borderRadius="999px"
+            animateOnRender
+            transitionDuration="2s"
+            isLabelVisible={false}
+          />
+
+          <header className="text-2xl pt-4">by Cameron Frazier</header>
         </div>
       </div>
     </div>
