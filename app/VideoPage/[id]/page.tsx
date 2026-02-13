@@ -100,7 +100,7 @@ export default function VideoPage() {
 
   if (!video) {
     return (
-      <div className="flex items-center justify-center h-screen  text-white bg-blue-500">
+      <div className="flex items-center justify-center h-screen  text-white bg-blue-500 ">
         <div className="text-center">
           <p className="text-2xl font-bold mb-4">Video not found</p>
           <button
@@ -125,7 +125,7 @@ export default function VideoPage() {
           {/* Video Player */}
           <div className="relative bg-gray-900 rounded-xl mb-6">
             {/* Ambient glow */}
-            <div className="absolute inset-0 scale-100 blur-3xl opacity-50">
+            <div className="absolute inset-0 scale-100 blur-2xl opacity-30">
               <video
                 ref={ambientVideoRef}
                 src={video.s3link}
@@ -159,7 +159,8 @@ export default function VideoPage() {
             <div className="flex items-center gap-4">
               {/* Channel Info */}
               <div className="flex items-center gap-3 flex-1">
-                <div className="w-12 h-12 bg-gradient-to-br from-red-600 to-red-800 rounded-full flex items-center justify-center">
+                {/* PFP OF CHANNEL */}
+                <div className="w-12 h-12  rounded-full flex items-center justify-center">
                   <img
           src={video.pfp}
           alt={video.title}
@@ -176,7 +177,7 @@ export default function VideoPage() {
               </div>
 
               {/* Subscribe Button */}
-              <button className="bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 rounded-full transition">
+              <button className="bg-lightbg hover:bg-hover text-white font-semibold px-4 py-2 rounded-full transition">
                 Subscribe
               </button>
             </div>
@@ -261,18 +262,23 @@ export default function VideoPage() {
             <Comments />
           </div>
         </div>
-        <div className="w-[28%] flex flex-col gap-2">
+        <div className="w-[20%] flex flex-col gap-2">
           {relatedVideos.map((video) => (
             <div
               key={video.id}
               onClick={() => router.push(`/VideoPage/${video.id}`)}
             >
+              <div className="flex flex-row">
               <RecommendedVideoCard
                 title={video.title}
                 channel={video.channel}
                 views={video.views}
                 thumbnail={video.thumbnail}
               />
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+</svg>
+             </div>
             </div>
           ))}
         </div>

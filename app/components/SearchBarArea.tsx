@@ -5,12 +5,15 @@ import MeTubeLogo from "../images/metubelogo.jpg";
 export default function SearchBarArea() {
   return (
     <div className="flex flex-row items-center justify-center w-full pb-4 pt-2 bg-[#181818]">
-      {/* MeTube Logo */}
+      {/* MyTube Logo */}
       <div className="w-[10%]  flex flex-row w-[10%]">
         <div className="flex flex-row items-center justify-center ml-4 gap-1">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+</svg>
         <Image
           src={"https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg"}
-          alt="MeTube Logo"
+          alt="MyTube Logo"
           width={30}
           height={20}
           className=" ml-2"
@@ -76,13 +79,7 @@ export default function SearchBarArea() {
           <Bell size={18} />
         </button>
         {/* PFP */}
-        <Image
-          src={defaultImage}
-          alt="Default"
-          width={30}
-          height={25}
-          className="rounded-full ml-2"
-        />
+        <img src="https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg" className="w-8 h-8 rounded-full ml-2"></img>
       </section>
     </div>
   );

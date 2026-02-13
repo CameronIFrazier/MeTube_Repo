@@ -51,7 +51,7 @@ export default function MeTube() {
                 title="Never Gonna Give You Up"
                 channel="RickAstleyVEVO"
                 views="1.2M"
-                pfp= {defaultImage.src}
+                pfp= "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg"
               />
             </section>
           </section>
