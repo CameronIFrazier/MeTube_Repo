@@ -324,7 +324,7 @@ export default function CommentSection() {
               ...c.replies,
               {
                 id: crypto.randomUUID(),
-                user: "Guest",
+                user: "@Cam",
                 avatar: "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg",
                 date: "Just now",
                 text,
@@ -352,7 +352,7 @@ export default function CommentSection() {
 
     const comment: Comment = {
       id: crypto.randomUUID(),
-      user: "Guest",
+      user: "@Cam",
       avatar: "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg",
       date: "Just now",
       text: newComment,

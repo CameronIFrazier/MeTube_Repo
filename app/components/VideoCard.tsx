@@ -21,7 +21,7 @@ export default function VideoCard({
   const router = useRouter();
 
   return (
-    <div className="w-full cursor-pointer flex flex-col">
+    <div className="w-full cursor-pointer flex flex-col ">
       {/* Thumbnail */}
       <div className="relative w-full aspect-[16/9] overflow-hidden rounded-lg">
         <img
@@ -34,15 +34,16 @@ export default function VideoCard({
 
       {/* Video Info */}
       <div className="flex mt-3 flex-row items-center">
-        <div className="w-10 h-10 rounded-full bg-gray-300 flex-shrink-0">
+        <div className="w-10 h-10 rounded-full bg-gray-300 flex-shrink-0" onClick={() => router.push(channel)}>
           <img
             src={pfp}
             alt={`${channel} avatar`}
             className="w-full h-full object-cover hover:scale-105 transition-transform duration-300 rounded-full"
           />
+
         </div>
         <div className="ml-3">
-          <h3 className="text-sm font-semibold text-gray-900">
+          <h3 className="text-sm font-semibold text-gray-500 ">
             {title}
           </h3>
           <p className="text-xs text-gray-500">{channel}</p>

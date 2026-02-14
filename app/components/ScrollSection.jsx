@@ -5,10 +5,12 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import * as THREE from "three";
 import VideoCard from "../components/VideoCard";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import defaultImage from "../images/default.png";
 //add link to videos as prop and make sure videos link to channel via pfp pick click
 export default function ScrollSection() {
+  const router = useRouter();
   return (
     <>
       {/* scrolbar css doesnt work  */}
@@ -33,76 +35,18 @@ export default function ScrollSection() {
           {/* SubScriptions */}
           <header className="font-bold"> Subscriptions</header>
         </div>
-        <div className="flex flex-row ml-2 items-center text-xs justify-start hover:bg-[#3d3d3d] rounded-lg cursor-pointer w-full p-1">
-          <Image
-            src={defaultImage}
+        <div className="flex flex-row ml-2 items-center text-xs justify-start hover:bg-[#3d3d3d] rounded-lg cursor-pointer w-full p-1" onClick={() => router.push("/Cam")}>
+          <img
+            src={"https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg"}
             alt="Default"
             width={25}
             height={25}
             className="rounded-full"
           />
-          <header className="pl-4"> Shorts</header>
+          <header className="pl-4"> Cam</header>
         </div>
-        <div className="flex flex-row ml-2 items-center text-xs justify-start hover:bg-[#3d3d3d] rounded-lg cursor-pointer w-full p-1">
-          <Image
-            src={defaultImage}
-            alt="Default"
-            width={25}
-            height={25}
-            className="rounded-full"
-          />
-          <header className="pl-4"> Shorts</header>
-        </div>
-        <div className="flex flex-row ml-2 items-center text-xs justify-start hover:bg-[#3d3d3d] rounded-lg cursor-pointer w-full p-1">
-          <Image
-            src={defaultImage}
-            alt="Default"
-            width={25}
-            height={25}
-            className="rounded-full"
-          />
-          <header className="pl-4"> Shorts</header>
-        </div>
-        <div className="flex flex-row ml-2 items-center text-xs justify-start hover:bg-[#3d3d3d] rounded-lg cursor-pointer w-full p-1">
-          <Image
-            src={defaultImage}
-            alt="Default"
-            width={25}
-            height={25}
-            className="rounded-full"
-          />
-          <header className="pl-4"> Shorts</header>
-        </div>
-        <div className="flex flex-row ml-2 items-center text-xs justify-start hover:bg-[#3d3d3d] rounded-lg cursor-pointer w-full p-1">
-          <Image
-            src={defaultImage}
-            alt="Default"
-            width={25}
-            height={25}
-            className="rounded-full"
-          />
-          <header className="pl-4"> Shorts</header>
-        </div>
-        <div className="flex flex-row ml-2 items-center text-xs justify-start hover:bg-[#3d3d3d] rounded-lg cursor-pointer w-full p-1">
-          <Image
-            src={defaultImage}
-            alt="Default"
-            width={25}
-            height={25}
-            className="rounded-full"
-          />
-          <header className="pl-4"> Shorts</header>
-        </div>
-        <div className="flex flex-row ml-2 items-center text-xs justify-start hover:bg-[#3d3d3d] rounded-lg cursor-pointer w-full p-1">
-          <Image
-            src={defaultImage}
-            alt="Default"
-            width={25}
-            height={25}
-            className="rounded-full"
-          />
-          <header className="pl-4"> Shorts</header>
-        </div>
+       
+        
         <hr className="w-full border-t border-white mt-4"></hr>
         {/* You */}
         <div className="flex flex-row ml-2 items-center text-xs justify-start  rounded-lg cursor-pointer w-full p-2 mt-4">

@@ -32,21 +32,22 @@ export default function VideoPage() {
   const [isDescriptionExpanded, setIsDescriptionExpanded] = useState(false);
   const [liked, setLiked] = useState(false);
   const [disliked, setDisliked] = useState(false);
-  
+
   const mainVideoRef = useRef<HTMLVideoElement>(null);
   const ambientVideoRef = useRef<HTMLVideoElement>(null);
 
   const videos: Record<string, Video> = {
     "1": {
-      title: "Never Gonna Give You Up",
+      title: "Beginner Projects of Mine",
       s3link:
         "https://metubebucketcf.s3.us-east-2.amazonaws.com/fortnite-clip.mp4",
       thumbnail: "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-      channel: "RickAstleyVEVO",
-      views: 1200000,
+      channel: "Cam",
+      views: 40,
       uploadDate: "2 weeks ago",
-      description: "Default Description for video 1",
-      pfp: "https://randomuser.me/api/portraits/men/1.jpg",
+      description:
+        "Heres a short compilation of some beginner projects I've done. Looking back, I deffinetly could've done better, but I'm still very proud of them considering most were made just after knowing react for around a month.",
+      pfp: "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg",
     },
     "2": {
       title: "Best Fortnite Clip Ever",
@@ -59,17 +60,7 @@ export default function VideoPage() {
       description: "Vid 2 Description",
       pfp: "https://randomuser.me/api/portraits/men/2.jpg",
     },
-    "3": {
-      title: "Cool Coding Tutorial",
-      s3link:
-        "https://metubebucketcf.s3.us-east-2.amazonaws.com/coding-tutorial.mp4",
-      thumbnail: "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-      channel: "CodeMaster",
-      views: 50000,
-      uploadDate: "3 weeks ago",
-      description: "...",
-      pfp: "https://randomuser.me/api/portraits/men/3.jpg",
-    },
+    //put actuall rick roll vid, gameplay of some game I like, wedding video, marias consert video, my beginner project videos
   };
 
   const relatedVideos = Object.entries(videos)
@@ -81,26 +72,26 @@ export default function VideoPage() {
   const syncVideos = (event: React.SyntheticEvent<HTMLVideoElement>) => {
     const mainVideo = mainVideoRef.current;
     const ambientVideo = ambientVideoRef.current;
-    
+
     if (!mainVideo || !ambientVideo) return;
 
-    if (event.type === 'play') {
+    if (event.type === "play") {
       ambientVideo.play();
-    } else if (event.type === 'pause') {
+    } else if (event.type === "pause") {
       ambientVideo.pause();
-    } else if (event.type === 'timeupdate') {
+    } else if (event.type === "timeupdate") {
       // Keep videos in sync
       if (Math.abs(ambientVideo.currentTime - mainVideo.currentTime) > 0.3) {
         ambientVideo.currentTime = mainVideo.currentTime;
       }
-    } else if (event.type === 'seeked') {
+    } else if (event.type === "seeked") {
       ambientVideo.currentTime = mainVideo.currentTime;
     }
   };
 
   if (!video) {
     return (
-      <div className="flex items-center justify-center h-screen  text-white bg-blue-500 ">
+      <div className="flex items-center justify-center min-h-screen  text-white bg-blue-500 overflow-y-auto">
         <div className="text-center">
           <p className="text-2xl font-bold mb-4">Video not found</p>
           <button
@@ -115,11 +106,11 @@ export default function VideoPage() {
   }
 
   return (
-    <div className="text-white min-h-screen w-full bg-[#181818] flex flex-col overflow-x-hidden">
+    <div className="text-white min-h-screen w-full bg-[#181818] flex flex-col overflow-y-auto overflow-x-hidden">
       {/* // search bar */}
       <SearchBarArea></SearchBarArea>
       {/* bg-[#181818] */}
-      <div className=" ml-8 flex flex-row w-full">
+      <div className="ml-8 flex flex-row w-full flex-1">
         {/* Main Content */}
         <div className="flex-1 max-w-[72%]">
           {/* Video Player */}
@@ -162,11 +153,10 @@ export default function VideoPage() {
                 {/* PFP OF CHANNEL */}
                 <div className="w-12 h-12  rounded-full flex items-center justify-center">
                   <img
-          src={video.pfp}
-          alt={video.title}
-          className="w-full h-full object-cover hover:scale-105 transition-transform duration-300 rounded-full"
-          
-        />
+                    src={video.pfp}
+                    alt={video.title}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300 rounded-full"
+                  />
                 </div>
                 <div>
                   <p className="font-semibold text-sm md:text-base hover:text-gray-300 cursor-pointer">
@@ -253,7 +243,7 @@ export default function VideoPage() {
               onClick={() => setIsDescriptionExpanded(!isDescriptionExpanded)}
               className="text-sm font-semibold text-gray-300 hover:text-white mt-2 transition"
             >
-              {isDescriptionExpanded ? "Show less" : "Show more"}
+              
             </button>
           </div>
 
@@ -269,16 +259,21 @@ export default function VideoPage() {
               onClick={() => router.push(`/VideoPage/${video.id}`)}
             >
               <div className="flex flex-row">
-              <RecommendedVideoCard
-                title={video.title}
-                channel={video.channel}
-                views={video.views}
-                thumbnail={video.thumbnail}
-              />
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-    <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
-</svg>
-             </div>
+                <RecommendedVideoCard
+                  title={video.title}
+                  channel={video.channel}
+                  views={video.views}
+                  thumbnail={video.thumbnail}
+                />
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                >
+                  <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
+                </svg>
+              </div>
             </div>
           ))}
         </div>

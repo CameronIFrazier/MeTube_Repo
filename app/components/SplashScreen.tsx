@@ -19,8 +19,8 @@ export default function SplashScreen() {
     // Unmount splash after full duration
     const removeTimer = setTimeout(() => setVisible(false), 2000);
 
-    // Lock scroll while splash is active
-    document.body.style.overflow = "hidden";
+    
+    
 
     return () => {
       clearTimeout(fadeTimer);
