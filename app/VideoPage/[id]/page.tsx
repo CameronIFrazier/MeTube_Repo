@@ -43,22 +43,44 @@ export default function VideoPage() {
         "https://metubebucketcf.s3.us-east-2.amazonaws.com/fortnite-clip.mp4",
       thumbnail: "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
       channel: "Cam",
-      views: 40,
+      views: 450000,
       uploadDate: "2 weeks ago",
       description:
         "Heres a short compilation of some beginner projects I've done. Looking back, I deffinetly could've done better, but I'm still very proud of them considering most were made just after knowing react for around a month.",
       pfp: "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg",
     },
     "2": {
-      title: "Best Fortnite Clip Ever",
+      title: "Concert I went to on my Hoenymoon",
       s3link:
-        "https://metubebucketcf.s3.us-east-2.amazonaws.com/fortnite-clip-2.mp4",
-      thumbnail: "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
-      channel: "FortniteClips",
+        "https://metubebucketcf.s3.us-east-2.amazonaws.com/IMG_1107.mp4",
+      thumbnail: "https://metubebucketcf.s3.us-east-2.amazonaws.com/IMG_1098.jpg",
+      channel: "Cam",
       views: 950000,
-      uploadDate: "1 month ago",
-      description: "Vid 2 Description",
-      pfp: "https://randomuser.me/api/portraits/men/2.jpg",
+      uploadDate: "8 months ago",
+      description: "My first large concert, the marias. So much fun! We went on our last day of our honeymoon in San Francisco.",
+      pfp: "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg",
+    },
+    "3": {
+      title: "My expense tracker app",
+      s3link:
+        "https://metubebucketcf.s3.us-east-2.amazonaws.com/expense-tracker-demo.mp4",
+      thumbnail: "https://metubebucketcf.s3.us-east-2.amazonaws.com/expense-tracker-demo-thumbnail.png",
+      channel: "Cam",
+      views: 33782,
+      uploadDate: "1 year ago",
+      description: "A somewhat intermediate level project I made to learn API calls and understand more backend development. Also, I added the Financial Advisor feature because I wanted to learn how to integrate AI into my projects. Was a great learning expiernce overall.",
+      pfp: "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg",
+    },
+    "4": {
+      title: "My Full stack social media app",
+      s3link:
+        "https://metubebucketcf.s3.us-east-2.amazonaws.com/leftovers-demo.mp4",
+      thumbnail: "https://metubebucketcf.s3.us-east-2.amazonaws.com/leftovers-demo-thumbnail.png",
+      channel: "Cam",
+      views: 1000000,
+      uploadDate: "6 months ago",
+      description: "My first large concert, the marias. So much fun! We went on our last day of our honeymoon in San Francisco.",
+      pfp: "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg",
     },
     //put actuall rick roll vid, gameplay of some game I like, wedding video, marias consert video, my beginner project videos
   };

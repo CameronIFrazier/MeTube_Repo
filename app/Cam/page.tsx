@@ -70,9 +70,9 @@ export default function CamPage() {
     </div>
     <section className="grid grid-cols-3 w-full items-center justify-center pb-8 pt-4">
                   <VideoCard
-                    id={1}
-                    thumbnail="https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg"
-                    title="Beginner Projects of Mine"
+                    id={2}
+                    thumbnail="https://metubebucketcf.s3.us-east-2.amazonaws.com/IMG_1098.jpg"
+                    title="Concert I went to on my Honeymoon"
                     channel="Cam"
                     views="40"
                     pfp= "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg"

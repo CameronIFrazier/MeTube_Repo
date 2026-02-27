@@ -3,11 +3,12 @@ import mysql from "mysql2/promise";
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id?: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  console.log("API called with params:", params);
+  const { id } = await params;
+  console.log("API called with params:", id);
 
-  const videoId = params.id ? parseInt(params.id) : null;
+  const videoId = id ? parseInt(id) : null;
 
   if (!videoId) {
     console.error("Missing video id in request");
@@ -22,7 +23,7 @@ export async function GET(
       password: process.env.MYSQLPASSWORD,
       database: process.env.MYSQLDATABASE,
       port: parseInt(process.env.MYSQLPORT || "3306"),
-      connectTimeout: 5000, // 5s timeout
+      connectTimeout: 5000,
     });
 
     console.log("DB connected successfully");
