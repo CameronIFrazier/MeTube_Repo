@@ -14,10 +14,10 @@ export default function ScrollSection() {
   return (
     <>
       {/* scrolbar css doesnt work  */}
-      <section className="flex flex-col items-start justify-start w-[10%] h-full overflow-y-auto overflow-x-hidden scrollbar-none">
+      <section className="flex flex-col items-start justify-start w-full h-full overflow-y-auto overflow-x-hidden scrollbar-none">
         {" "}
         {/* MeTube Icon + Title */}
-        <div className="flex flex-row ml-2 items-center text-xs justify-start hover:bg-[#3d3d3d] rounded-lg cursor-pointer w-full p-1">
+        <div className="flex flex-row ml-2 items-center text-xs justify-start hover:bg-[#3d3d3d] rounded-lg cursor-pointer w-full p-1" onClick={() => router.push("/")}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
             <path d="M4 21V10.08l8-6.96 8 6.96V21h-6v-6h-4v6H4z" />
           </svg>

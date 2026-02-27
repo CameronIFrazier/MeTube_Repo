@@ -40,13 +40,13 @@ export default function VideoPage() {
     "1": {
       title: "Beginner Projects of Mine",
       s3link:
-        "https://metubebucketcf.s3.us-east-2.amazonaws.com/fortnite-clip.mp4",
-      thumbnail: "https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg",
+        "https://metubebucketcf.s3.us-east-2.amazonaws.com/beginner-projects-demo-vid.mp4",
+      thumbnail: "https://metubebucketcf.s3.us-east-2.amazonaws.com/mrc-thumbnail.png",
       channel: "Cam",
-      views: 450000,
+      views: 450145,
       uploadDate: "2 weeks ago",
       description:
-        "Heres a short compilation of some beginner projects I've done. Looking back, I deffinetly could've done better, but I'm still very proud of them considering most were made just after knowing react for around a month.",
+        "Heres a short compilation of some beginner projects I've done. Looking back, I deffinetly could've done better, but I'm still very proud of them considering they were made just after knowing react for around a week.",
       pfp: "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg",
     },
     "2": {
@@ -68,7 +68,7 @@ export default function VideoPage() {
       channel: "Cam",
       views: 33782,
       uploadDate: "1 year ago",
-      description: "A somewhat intermediate level project I made to learn API calls and understand more backend development. Also, I added the Financial Advisor feature because I wanted to learn how to integrate AI into my projects. Was a great learning expiernce overall.",
+      description: "A somewhat intermediate level project I made to learn API calls and understand more backend development. Also, I added the Financial Advisor feature because I wanted to learn how to integrate AI into my projects. Was a great learning expiernce overall. Oh and i haven't added audio yet to record my voice as I need a new microphone currently.",
       pfp: "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg",
     },
     "4": {
@@ -79,7 +79,18 @@ export default function VideoPage() {
       channel: "Cam",
       views: 1000000,
       uploadDate: "6 months ago",
-      description: "My first large concert, the marias. So much fun! We went on our last day of our honeymoon in San Francisco.",
+      description: "My full stack social meida app using nextjs, railway, mysql, and vercel. Oh and i haven't added audio yet to record my voice as I need a new microphone currently.",
+      pfp: "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg",
+    },
+    "5": {
+      title: "Full stack banking application",
+      s3link:
+        "https://metubebucketcf.s3.us-east-2.amazonaws.com/leftovers-demo.mp4",
+      thumbnail: "https://metubebucketcf.s3.us-east-2.amazonaws.com/watergate-demo-thumbnail.png",
+      channel: "Cam",
+      views: 63597,
+      uploadDate: "9 months ago",
+      description: "My full stack banking application using nodejs with vite, railway, mysql, and vercel. Oh and i haven't added audio yet to record my voice as I need a new microphone currently.",
       pfp: "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg",
     },
     //put actuall rick roll vid, gameplay of some game I like, wedding video, marias consert video, my beginner project videos
@@ -274,7 +285,7 @@ export default function VideoPage() {
             <Comments />
           </div>
         </div>
-        <div className="w-[20%] flex flex-col gap-2">
+        <div className="w-[20%] flex flex-col ">
           {relatedVideos.map((video) => (
             <div
               key={video.id}

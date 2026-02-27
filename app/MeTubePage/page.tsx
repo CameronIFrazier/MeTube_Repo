@@ -20,13 +20,15 @@ export default function MeTube() {
         {/* ScrollSection Component */}
         <SearchBarArea />
         <div className="flex flex-row">
+          <div className="w-[10%]">
           <ScrollSection /> 
+          </div>
           <section className="flex flex-col w-full">
-            <section className="flex flex-row w-full bg-[#181818] items-center justify-center"></section>
+            <section className="flex flex-row w-full bg-bg items-center justify-center"></section>
             <section className="grid grid-cols-3 items-center justify-center ml-8 mr-8 gap-4" >
               <VideoCard
                 id={1}
-                thumbnail="https://i.ytimg.com/vi/dQw4w9WgXcQ/hqdefault.jpg"
+                thumbnail="https://metubebucketcf.s3.us-east-2.amazonaws.com/mrc-thumbnail.png"
                 title="Beginner Projects of Mine"
                 channel="Cam"
                 views="450,145"
@@ -54,6 +56,14 @@ export default function MeTube() {
                 title="My Full stack social media app"
                 channel="Cam"
                 views="1,000,000"
+                pfp= "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg"
+              />
+              <VideoCard
+                id={5}
+                thumbnail="https://metubebucketcf.s3.us-east-2.amazonaws.com/watergate-demo-thumbnail.png"
+                title="Full Stack Banking app"
+                channel="Cam"
+                views="63,597"
                 pfp= "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg"
               />
               
