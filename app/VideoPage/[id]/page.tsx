@@ -21,8 +21,38 @@ type Video = {
   views?: number;
   uploadDate?: string;
   description?: string;
+  website?: string;
   pfp?: string;
 };
+
+function renderDescription(text: string) {
+  const urlRegex = /(https?:\/\/[^\s]+)/g;
+  const parts = text.split(/(\n)/);
+
+  return parts.map((part, i) => {
+    if (part === "\n") return <br key={i} />;
+    const segments = part.split(urlRegex);
+    return (
+      <span key={i}>
+        {segments.map((seg, j) =>
+          urlRegex.test(seg) ? (
+            <a
+              key={j}
+              href={seg}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#3ea6ff] hover:underline"
+            >
+              {seg}
+            </a>
+          ) : (
+            seg
+          )
+        )}
+      </span>
+    );
+  });
+}
 
 export default function VideoPage() {
   const params = useParams();
@@ -47,10 +77,11 @@ export default function VideoPage() {
       uploadDate: "2 weeks ago",
       description:
         "Heres a short compilation of some beginner projects I've done. Looking back, I deffinetly could've done better, but I'm still very proud of them considering they were made just after knowing react for around a week.",
+      website: "",
       pfp: "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg",
     },
     "2": {
-      title: "Concert I went to on my Hoenymoon",
+      title: "Concert I went to on my Honeymoon",
       s3link:
         "https://metubebucketcf.s3.us-east-2.amazonaws.com/IMG_1107.mp4",
       thumbnail: "https://metubebucketcf.s3.us-east-2.amazonaws.com/IMG_1098.jpg",
@@ -58,6 +89,7 @@ export default function VideoPage() {
       views: 950000,
       uploadDate: "8 months ago",
       description: "My first large concert, the marias. So much fun! We went on our last day of our honeymoon in San Francisco.",
+      website: "",
       pfp: "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg",
     },
     "3": {
@@ -68,7 +100,8 @@ export default function VideoPage() {
       channel: "Cam",
       views: 33782,
       uploadDate: "1 year ago",
-      description: "A somewhat intermediate level project I made to learn API calls and understand more backend development. Also, I added the Financial Advisor feature because I wanted to learn how to integrate AI into my projects. Was a great learning expiernce overall. Oh and i haven't added audio yet to record my voice as I need a new microphone currently.",
+      description: "A somewhat intermediate level project I made to learn API calls and understand more backend development. Also, I added the Financial Advisor feature because I wanted to learn how to integrate AI into my projects. Was a great learning experience overall. Oh and I haven't added audio yet to record my voice as I need a new microphone currently.",
+      website: "https://expense-tracker-repo-ivory.vercel.app/",
       pfp: "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg",
     },
     "4": {
@@ -79,21 +112,22 @@ export default function VideoPage() {
       channel: "Cam",
       views: 1000000,
       uploadDate: "6 months ago",
-      description: "My full stack social meida app using nextjs, railway, mysql, and vercel. Oh and i haven't added audio yet to record my voice as I need a new microphone currently.",
+      description: "My full stack social media app using nextjs, railway, mysql, and vercel. Oh and I haven't added audio yet to record my voice as I need a new microphone currently.",
+      website: "https://leftoversnextjs-qebo.vercel.app/",
       pfp: "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg",
     },
     "5": {
       title: "Full stack banking application",
       s3link:
-        "https://metubebucketcf.s3.us-east-2.amazonaws.com/leftovers-demo.mp4",
+        "https://metubebucketcf.s3.us-east-2.amazonaws.com/watergate-demo-vid.mp4",
       thumbnail: "https://metubebucketcf.s3.us-east-2.amazonaws.com/watergate-demo-thumbnail.png",
       channel: "Cam",
       views: 63597,
       uploadDate: "9 months ago",
-      description: "My full stack banking application using nodejs with vite, railway, mysql, and vercel. Oh and i haven't added audio yet to record my voice as I need a new microphone currently.",
+      description: "My full stack banking application using nodejs with vite, railway, mysql, and vercel. Oh and I haven't added audio yet to record my voice as I need a new microphone currently.",
+      website: "https://watergate-repo-7ofd.vercel.app/",
       pfp: "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg",
     },
-    //put actuall rick roll vid, gameplay of some game I like, wedding video, marias consert video, my beginner project videos
   };
 
   const relatedVideos = Object.entries(videos)
@@ -113,7 +147,6 @@ export default function VideoPage() {
     } else if (event.type === "pause") {
       ambientVideo.pause();
     } else if (event.type === "timeupdate") {
-      // Keep videos in sync
       if (Math.abs(ambientVideo.currentTime - mainVideo.currentTime) > 0.3) {
         ambientVideo.currentTime = mainVideo.currentTime;
       }
@@ -124,7 +157,7 @@ export default function VideoPage() {
 
   if (!video) {
     return (
-      <div className="flex items-center justify-center min-h-screen  text-white bg-blue-500 overflow-y-auto">
+      <div className="flex items-center justify-center min-h-screen text-white bg-blue-500 overflow-y-auto">
         <div className="text-center">
           <p className="text-2xl font-bold mb-4">Video not found</p>
           <button
@@ -140,15 +173,12 @@ export default function VideoPage() {
 
   return (
     <div className="text-white min-h-screen w-full bg-[#181818] flex flex-col overflow-y-auto overflow-x-hidden">
-      {/* // search bar */}
       <SearchBarArea></SearchBarArea>
-      {/* bg-[#181818] */}
       <div className="ml-8 flex flex-row w-full flex-1">
         {/* Main Content */}
         <div className="flex-1 max-w-[72%]">
           {/* Video Player */}
           <div className="relative bg-gray-900 rounded-xl mb-6">
-            {/* Ambient glow */}
             <div className="absolute inset-0 scale-100 blur-2xl opacity-30">
               <video
                 ref={ambientVideoRef}
@@ -158,8 +188,6 @@ export default function VideoPage() {
                 className="w-full h-full object-cover"
               />
             </div>
-
-            {/* Actual video */}
             <div className="relative aspect-video bg-black z-10">
               <video
                 ref={mainVideoRef}
@@ -181,10 +209,8 @@ export default function VideoPage() {
           {/* Video Stats & Actions */}
           <div className="flex flex-col md:flex-row md:items-center md:justify-between border-b border-gray-700 pb-4 mb-4 gap-4">
             <div className="flex items-center gap-4">
-              {/* Channel Info */}
               <div className="flex items-center gap-3 flex-1">
-                {/* PFP OF CHANNEL */}
-                <div className="w-12 h-12  rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full flex items-center justify-center">
                   <img
                     src={video.pfp}
                     alt={video.title}
@@ -198,44 +224,27 @@ export default function VideoPage() {
                   <p className="text-xs text-gray-400">1.2M subscribers</p>
                 </div>
               </div>
-
-              {/* Subscribe Button */}
               <button className="bg-lightbg hover:bg-hover text-white font-semibold px-4 py-2 rounded-full transition">
                 Subscribe
               </button>
             </div>
 
-            {/* Action Buttons */}
             <div className="flex items-center gap-2 md:gap-1 flex-wrap">
               <button
-                onClick={() => {
-                  setLiked(!liked);
-                  setDisliked(false);
-                }}
+                onClick={() => { setLiked(!liked); setDisliked(false); }}
                 className="flex items-center gap-2 hover:bg-gray-800 px-3 py-2 rounded-full transition group"
               >
-                <ThumbsUp
-                  size={20}
-                  className={liked ? "fill-white" : "group-hover:fill-gray-500"}
-                />
+                <ThumbsUp size={20} className={liked ? "fill-white" : "group-hover:fill-gray-500"} />
                 <span className="text-sm hidden md:inline">247K</span>
               </button>
 
               <div className="h-6 w-px bg-gray-700 hidden md:block"></div>
 
               <button
-                onClick={() => {
-                  setDisliked(!disliked);
-                  setLiked(false);
-                }}
+                onClick={() => { setDisliked(!disliked); setLiked(false); }}
                 className="hover:bg-gray-800 px-3 py-2 rounded-full transition group"
               >
-                <ThumbsDown
-                  size={20}
-                  className={
-                    disliked ? "fill-white" : "group-hover:fill-gray-500"
-                  }
-                />
+                <ThumbsDown size={20} className={disliked ? "fill-white" : "group-hover:fill-gray-500"} />
               </button>
 
               <button className="flex items-center gap-2 hover:bg-gray-800 px-3 py-2 rounded-full transition group">
@@ -264,19 +273,34 @@ export default function VideoPage() {
               <span>{video.uploadDate}</span>
             </div>
 
-            <div
-              className={`text-sm text-gray-300 ${
-                isDescriptionExpanded ? "" : "line-clamp-3"
-              }`}
-            >
-              {video.description}
+            <div className={`text-sm text-gray-300 ${isDescriptionExpanded ? "" : "line-clamp-3"}`}>
+              {/* H3 title inside description */}
+              <h3 className="text-white font-semibold text-base mb-2">{video.title}</h3>
+
+              {/* Description text with clickable links */}
+              <p className="mb-3">{video.description && renderDescription(video.description)}</p>
+
+              {/* Website link */}
+              {video.website && (
+                <div className="flex items-center gap-2 mt-2">
+                  <span className="text-gray-400">🔗</span>
+                  <a
+                    href={video.website}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[#3ea6ff] hover:underline"
+                  >
+                    {video.website}
+                  </a>
+                </div>
+              )}
             </div>
 
             <button
               onClick={() => setIsDescriptionExpanded(!isDescriptionExpanded)}
               className="text-sm font-semibold text-gray-300 hover:text-white mt-2 transition"
             >
-              
+              {isDescriptionExpanded ? "Show less" : "...more"}
             </button>
           </div>
 
@@ -285,7 +309,8 @@ export default function VideoPage() {
             <Comments />
           </div>
         </div>
-        <div className="w-[20%] flex flex-col ">
+
+        <div className="w-[20%] flex flex-col">
           {relatedVideos.map((video) => (
             <div
               key={video.id}
@@ -298,12 +323,7 @@ export default function VideoPage() {
                   views={video.views}
                   thumbnail={video.thumbnail}
                 />
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />
                 </svg>
               </div>
