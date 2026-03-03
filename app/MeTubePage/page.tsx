@@ -66,6 +66,15 @@ export default function MeTube() {
                 views="63,597"
                 pfp= "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg"
               />
+              <VideoCard
+                id={6}
+                thumbnail="https://metubebucketcf.s3.us-east-2.amazonaws.com/cleaning-website-thumbnail.png"
+                title="Work Expierience: Cleaning Website"
+                channel="Cam"
+                views="94,859"
+                pfp= "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg"
+              />
+              
               
             </section>
           </section>

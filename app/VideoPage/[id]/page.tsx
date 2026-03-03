@@ -128,6 +128,18 @@ export default function VideoPage() {
       website: "https://watergate-repo-7ofd.vercel.app/",
       pfp: "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg",
     },
+    "6": {
+      title: "Work Experience: Cleaning Website",
+      s3link:
+        "https://metubebucketcf.s3.us-east-2.amazonaws.com/cleaning-website-demo.mp4",
+      thumbnail: "https://metubebucketcf.s3.us-east-2.amazonaws.com/cleaning-website-thumbnail.png",
+      channel: "Cam",
+      views: 94859,
+      uploadDate: "9 months ago",
+      description: "This is a live production website currently used by a local cleaning company in my area (fontana). It has everything that a professional cleaning service would need to display, as well as a working email form at the bottom. The video might be a bit slow due to performance issues with my pc, for that I apologize. Link to the website below.",
+      website: "https://humberto-alpha.vercel.app/",
+      pfp: "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg",
+    },
   };
 
   const relatedVideos = Object.entries(videos)
