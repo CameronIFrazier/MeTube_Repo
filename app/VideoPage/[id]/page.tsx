@@ -129,7 +129,7 @@ export default function VideoPage() {
       pfp: "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg",
     },
     "6": {
-      title: "Work Experience: Cleaning Website",
+      title: "Work Experience: Dr Clean House",
       s3link:
         "https://metubebucketcf.s3.us-east-2.amazonaws.com/cleaning-website-demo.mp4",
       thumbnail: "https://metubebucketcf.s3.us-east-2.amazonaws.com/cleaning-website-thumbnail.png",

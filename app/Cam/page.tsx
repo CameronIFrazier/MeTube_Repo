@@ -25,7 +25,7 @@ export default function CamPage() {
                 <div className="flex gap-2 text-gray-400 text-sm mb-4 flex-wrap">
                     <span>8 Billion subscribers</span>
                     <span className="text-gray-600">•</span>
-                    <span>1 post</span>
+                    <span>6 post</span>
                     <span className="text-gray-600">•</span>
                     <span>Channel created on July 14, 2003</span>
                 </div>
@@ -68,17 +68,65 @@ export default function CamPage() {
             
         </div>
     </div>
-    <section className="grid grid-cols-3 w-full items-center justify-center pb-8 pt-4">
+    <section className="grid grid-cols-3 w-full items-center justify-center pb-8 pt-4 gap-4" >
                   <VideoCard
-                    id={2}
-                    thumbnail="https://metubebucketcf.s3.us-east-2.amazonaws.com/IMG_1098.jpg"
-                    title="Concert I went to on my Honeymoon"
-                    channel="Cam"
-                    views="40"
-                    pfp= "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg"
-                  />
+                                  id={1}
+                                  thumbnail="https://metubebucketcf.s3.us-east-2.amazonaws.com/mrc-thumbnail.png"
+                                  title="Beginner Projects of Mine"
+                                  channel="Cam"
+                                  views="450,145"
+                                  pfp= "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg"
+                                />
+                                <VideoCard
+                                  id={2}
+                                  thumbnail="https://metubebucketcf.s3.us-east-2.amazonaws.com/IMG_1098.jpg"
+                                  title="Concert I went to on my Honeymoon"
+                                  channel="Cam"
+                                  views="900,000"
+                                  pfp= "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg"
+                                />
+                                <VideoCard
+                                  id={3}
+                                  thumbnail="https://metubebucketcf.s3.us-east-2.amazonaws.com/expense-tracker-demo-thumbnail.png"
+                                  title="My expense tracker app"
+                                  channel="Cam"
+                                  views="33,782"
+                                  pfp= "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg"
+                                />
+                                <VideoCard
+                                  id={4}
+                                  thumbnail="https://metubebucketcf.s3.us-east-2.amazonaws.com/leftovers-demo-thumbnail.png"
+                                  title="My Full stack social media app"
+                                  channel="Cam"
+                                  views="1,000,000"
+                                  pfp= "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg"
+                                />
+                                <VideoCard
+                                  id={5}
+                                  thumbnail="https://metubebucketcf.s3.us-east-2.amazonaws.com/watergate-demo-thumbnail.png"
+                                  title="Full Stack Banking app"
+                                  channel="Cam"
+                                  views="63,597"
+                                  pfp= "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg"
+                                />
+                                <VideoCard
+                                  id={6}
+                                  thumbnail="https://metubebucketcf.s3.us-east-2.amazonaws.com/cleaning-website-thumbnail.png"
+                                  title="Work Expierience: Dr Clean House"
+                                  channel="Cam"
+                                  views="94,859"
+                                  pfp= "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg"
+                                />
                   
                 </section>
+
+                <div className="relative w-full aspect-[16/9] overflow-hidden rounded-lg">
+  <iframe
+    src="https://metubebucketcf.s3.us-east-2.amazonaws.com/Student_Resume+(8).pdf"
+    className="w-full h-full pb-8"
+    title="Resume"
+  />
+</div>
     </div>
    
     </div>

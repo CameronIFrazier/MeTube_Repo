@@ -69,7 +69,7 @@ export default function MeTube() {
               <VideoCard
                 id={6}
                 thumbnail="https://metubebucketcf.s3.us-east-2.amazonaws.com/cleaning-website-thumbnail.png"
-                title="Work Expierience: Cleaning Website"
+                title="Work Expierience: Dr Clean House"
                 channel="Cam"
                 views="94,859"
                 pfp= "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg"

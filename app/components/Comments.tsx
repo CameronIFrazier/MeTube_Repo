@@ -15,14 +15,17 @@ type Comment = {
 };
 
 const avatars = [
-  "https://randomuser.me/api/portraits/men/11.jpg",
-  "https://randomuser.me/api/portraits/women/12.jpg",
-  "https://randomuser.me/api/portraits/men/21.jpg",
-  "https://randomuser.me/api/portraits/women/22.jpg",
-  "https://randomuser.me/api/portraits/men/31.jpg",
-  "https://randomuser.me/api/portraits/women/32.jpg",
-  "https://randomuser.me/api/portraits/men/41.jpg",
-  "https://randomuser.me/api/portraits/women/42.jpg",
+  "https://metubebucketcf.s3.us-east-2.amazonaws.com/baddie-pfp.jpg", //0
+  "https://metubebucketcf.s3.us-east-2.amazonaws.com/pfp-mona-lisa.avif",//1
+  "https://metubebucketcf.s3.us-east-2.amazonaws.com/pfp-chill-guy.png",//2
+  "https://metubebucketcf.s3.us-east-2.amazonaws.com/pfp-ryangosling.jpg",//3
+  "https://metubebucketcf.s3.us-east-2.amazonaws.com/pfp-cat.webp",//4
+  "https://metubebucketcf.s3.us-east-2.amazonaws.com/fish-eye-pfp.avif",//5
+  "https://metubebucketcf.s3.us-east-2.amazonaws.com/dreadhead-pfp.webp",//6
+  "https://metubebucketcf.s3.us-east-2.amazonaws.com/bunny-pfp.jpg",//7
+  "https://metubebucketcf.s3.us-east-2.amazonaws.com/pfp-patrick.jpg",//8
+  "https://metubebucketcf.s3.us-east-2.amazonaws.com/pfp-roblox-1.jpg",//9
+  "https://metubebucketcf.s3.us-east-2.amazonaws.com/pfp-lil-dude.png",//10
 ];
 
 const guestAvatar =
@@ -63,7 +66,7 @@ const seedComments: Comment[] = [
   {
     id: crypto.randomUUID(),
     user: "@latebutwatching",
-    avatar: avatars[3],
+    avatar: avatars[10],
     date: "3 days ago",
     text: `Knock knock.
 
@@ -117,7 +120,7 @@ Is this even legal!? Hello?!?!?!`,
   {
     id: crypto.randomUUID(),
     user: "@rewatchclub",
-    avatar: avatars[0],
+    avatar: avatars[9],
     date: "1 week ago",
     text: "Second watch was even better than the first.",
     likes: 133,
@@ -127,7 +130,7 @@ Is this even legal!? Hello?!?!?!`,
   {
     id: crypto.randomUUID(),
     user: "@minimalcuts",
-    avatar: avatars[1],
+    avatar: avatars[8],
     date: "8 days ago",
     text: "This guy only posts about himself, narcisist.",
     likes: 177,
