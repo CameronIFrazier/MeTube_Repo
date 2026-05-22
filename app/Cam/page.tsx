@@ -40,8 +40,9 @@ export default function CamPage() {
                         Join
                     </button>
                     <button className="bg-[#272727] text-gray-100 px-4 py-2.5 rounded-full text-sm cursor-pointer hover:bg-[#3f3f3f] transition">
-                        Share
+                        Like
                     </button>
+                    
                 </div>
             </div>
 
@@ -122,7 +123,7 @@ export default function CamPage() {
 
                 <div className="relative w-full aspect-[16/9] overflow-hidden rounded-lg">
   <iframe
-    src="https://metubebucketcf.s3.us-east-2.amazonaws.com/Student_Resume+(8).pdf"
+    src="https://metubebucketcf.s3.us-east-2.amazonaws.com/Resume+(9).pdf"
     className="w-full h-full pb-8"
     title="Resume"
   />

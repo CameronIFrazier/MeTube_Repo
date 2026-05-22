@@ -222,15 +222,16 @@ export default function VideoPage() {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between border-b border-gray-700 pb-4 mb-4 gap-4">
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-3 flex-1">
-                <div className="w-12 h-12 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 rounded-full flex items-center justify-center" >
                   <img
                     src={video.pfp}
                     alt={video.title}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300 rounded-full"
+                    onClick={() => router.push(`/Cam`)}
                   />
                 </div>
                 <div>
-                  <p className="font-semibold text-sm md:text-base hover:text-gray-300 cursor-pointer">
+                  <p className="font-semibold text-sm md:text-base hover:text-gray-300 cursor-pointer" onClick={() => router.push(`/Cam`)}>
                     {video.channel}
                   </p>
                   <p className="text-xs text-gray-400">1.2M subscribers</p>
