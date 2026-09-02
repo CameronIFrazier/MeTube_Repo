@@ -3,6 +3,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { Bell, Mic } from "lucide-react";
 import ScrollSection from "./ScrollSection";
+import { CHANNEL_PFP } from "../data/videos";
 
 export default function SearchBarArea() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -20,7 +21,7 @@ export default function SearchBarArea() {
       {/* Sidebar — always in DOM, transition handles show/hide */}
       <div
         className={`fixed pt-2 left-0 top-0 h-full bg-[#181818] z-50 shadow-2xl overflow-y-auto overflow-x-hidden transition-all duration-300 ease-in-out ${
-          sidebarOpen ? "w-[10%]" : "w-0"
+          sidebarOpen ? "w-[15%]" : "w-0"
         }`}
       >
         {/* Inner div stays full width so content doesn't squish */}
@@ -41,7 +42,7 @@ export default function SearchBarArea() {
               height={20}
               className="ml-2"
             />
-            <header>MyTube</header>
+            <header className="font-bold">MyTube</header>
           </div>
           <ScrollSection />
         </div>
@@ -100,7 +101,7 @@ export default function SearchBarArea() {
           <button className="relative flex items-center justify-center w-8 h-8 rounded-full hover:bg-hover transition ml-2">
             <Bell size={18} />
           </button>
-          <img src="https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg" className="w-8 h-8 rounded-full ml-2" />
+          <img src={CHANNEL_PFP} alt="Cam" className="w-8 h-8 rounded-full ml-2 object-cover" />
         </section>
       </div>
     </>

@@ -12,18 +12,13 @@ import {
   BookmarkPlus,
   MoreVertical,
 } from "lucide-react";
-
-type Video = {
-  title: string;
-  s3link: string;
-  thumbnail: string;
-  channel?: string;
-  views?: number;
-  uploadDate?: string;
-  description?: string;
-  website?: string;
-  pfp?: string;
-};
+import {
+  videos,
+  getVideoById,
+  videoUrl,
+  thumbnailUrl,
+  CHANNEL_PFP,
+} from "@/app/data/videos";
 
 function renderDescription(text: string) {
   const urlRegex = /(https?:\/\/[^\s]+)/g;
@@ -66,87 +61,8 @@ export default function VideoPage() {
   const mainVideoRef = useRef<HTMLVideoElement>(null);
   const ambientVideoRef = useRef<HTMLVideoElement>(null);
 
-  const videos: Record<string, Video> = {
-    "1": {
-      title: "Beginner Projects of Mine",
-      s3link:
-        "https://metubebucketcf.s3.us-east-2.amazonaws.com/beginner-projects-demo-vid.mp4",
-      thumbnail: "https://metubebucketcf.s3.us-east-2.amazonaws.com/mrc-thumbnail.png",
-      channel: "Cam",
-      views: 450145,
-      uploadDate: "2 weeks ago",
-      description:
-        "Heres a short compilation of some beginner projects I've done. Looking back, I deffinetly could've done better, but I'm still very proud of them considering they were made just after knowing react for around a week.",
-      website: "",
-      pfp: "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg",
-    },
-    "2": {
-      title: "Concert I went to on my Honeymoon",
-      s3link:
-        "https://metubebucketcf.s3.us-east-2.amazonaws.com/IMG_1107.mp4",
-      thumbnail: "https://metubebucketcf.s3.us-east-2.amazonaws.com/IMG_1098.jpg",
-      channel: "Cam",
-      views: 950000,
-      uploadDate: "8 months ago",
-      description: "My first large concert, the marias. So much fun! We went on our last day of our honeymoon in San Francisco.",
-      website: "",
-      pfp: "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg",
-    },
-    "3": {
-      title: "My expense tracker app",
-      s3link:
-        "https://metubebucketcf.s3.us-east-2.amazonaws.com/expense-tracker-demo.mp4",
-      thumbnail: "https://metubebucketcf.s3.us-east-2.amazonaws.com/expense-tracker-demo-thumbnail.png",
-      channel: "Cam",
-      views: 33782,
-      uploadDate: "1 year ago",
-      description: "A somewhat intermediate level project I made to learn API calls and understand more backend development. Also, I added the Financial Advisor feature because I wanted to learn how to integrate AI into my projects. Was a great learning experience overall. Oh and I haven't added audio yet to record my voice as I need a new microphone currently.",
-      website: "https://expense-tracker-repo-ivory.vercel.app/",
-      pfp: "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg",
-    },
-    "4": {
-      title: "My Full stack social media app",
-      s3link:
-        "https://metubebucketcf.s3.us-east-2.amazonaws.com/leftovers-demo.mp4",
-      thumbnail: "https://metubebucketcf.s3.us-east-2.amazonaws.com/leftovers-demo-thumbnail.png",
-      channel: "Cam",
-      views: 1000000,
-      uploadDate: "6 months ago",
-      description: "My full stack social media app using nextjs, railway, mysql, and vercel. Oh and I haven't added audio yet to record my voice as I need a new microphone currently.",
-      website: "https://leftoversnextjs-qebo.vercel.app/",
-      pfp: "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg",
-    },
-    "5": {
-      title: "Full stack banking application",
-      s3link:
-        "https://metubebucketcf.s3.us-east-2.amazonaws.com/watergate-demo-vid.mp4",
-      thumbnail: "https://metubebucketcf.s3.us-east-2.amazonaws.com/watergate-demo-thumbnail.png",
-      channel: "Cam",
-      views: 63597,
-      uploadDate: "9 months ago",
-      description: "My full stack banking application using nodejs with vite, railway, mysql, and vercel. Oh and I haven't added audio yet to record my voice as I need a new microphone currently.",
-      website: "https://watergate-repo-7ofd.vercel.app/",
-      pfp: "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg",
-    },
-    "6": {
-      title: "Work Experience: Dr Clean House",
-      s3link:
-        "https://metubebucketcf.s3.us-east-2.amazonaws.com/cleaning-website-demo.mp4",
-      thumbnail: "https://metubebucketcf.s3.us-east-2.amazonaws.com/cleaning-website-thumbnail.png",
-      channel: "Cam",
-      views: 94859,
-      uploadDate: "9 months ago",
-      description: "This is a live production website currently used by a local cleaning company in my area (fontana). It has everything that a professional cleaning service would need to display, as well as a working email form at the bottom. The video might be a bit slow due to performance issues with my pc, for that I apologize. Link to the website below.",
-      website: "https://humberto-alpha.vercel.app/",
-      pfp: "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg",
-    },
-  };
-
-  const relatedVideos = Object.entries(videos)
-    .filter(([id]) => id !== videoId)
-    .map(([id, video]) => ({ id, ...video }));
-
-  const video = videoId ? videos[videoId] : null;
+  const video = getVideoById(videoId);
+  const relatedVideos = videos.filter((v) => v.id !== videoId);
 
   const syncVideos = (event: React.SyntheticEvent<HTMLVideoElement>) => {
     const mainVideo = mainVideoRef.current;
@@ -194,7 +110,7 @@ export default function VideoPage() {
             <div className="absolute inset-0 scale-100 blur-2xl opacity-30">
               <video
                 ref={ambientVideoRef}
-                src={video.s3link}
+                src={videoUrl(video)}
                 muted
                 loop
                 className="w-full h-full object-cover"
@@ -203,7 +119,7 @@ export default function VideoPage() {
             <div className="relative aspect-video bg-black z-10">
               <video
                 ref={mainVideoRef}
-                src={video.s3link}
+                src={videoUrl(video)}
                 controls
                 autoPlay
                 className="w-full h-full object-contain"
@@ -222,16 +138,19 @@ export default function VideoPage() {
           <div className="flex flex-col md:flex-row md:items-center md:justify-between border-b border-gray-700 pb-4 mb-4 gap-4">
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-3 flex-1">
-                <div className="w-12 h-12 rounded-full flex items-center justify-center" >
+                <div className="w-12 h-12 rounded-full flex items-center justify-center">
                   <img
-                    src={video.pfp}
+                    src={CHANNEL_PFP}
                     alt={video.title}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300 rounded-full"
                     onClick={() => router.push(`/Cam`)}
                   />
                 </div>
                 <div>
-                  <p className="font-semibold text-sm md:text-base hover:text-gray-300 cursor-pointer" onClick={() => router.push(`/Cam`)}>
+                  <p
+                    className="font-semibold text-sm md:text-base hover:text-gray-300 cursor-pointer"
+                    onClick={() => router.push(`/Cam`)}
+                  >
                     {video.channel}
                   </p>
                   <p className="text-xs text-gray-400">1.2M subscribers</p>
@@ -244,20 +163,32 @@ export default function VideoPage() {
 
             <div className="flex items-center gap-2 md:gap-1 flex-wrap">
               <button
-                onClick={() => { setLiked(!liked); setDisliked(false); }}
+                onClick={() => {
+                  setLiked(!liked);
+                  setDisliked(false);
+                }}
                 className="flex items-center gap-2 hover:bg-gray-800 px-3 py-2 rounded-full transition group"
               >
-                <ThumbsUp size={20} className={liked ? "fill-white" : "group-hover:fill-gray-500"} />
+                <ThumbsUp
+                  size={20}
+                  className={liked ? "fill-white" : "group-hover:fill-gray-500"}
+                />
                 <span className="text-sm hidden md:inline">247K</span>
               </button>
 
               <div className="h-6 w-px bg-gray-700 hidden md:block"></div>
 
               <button
-                onClick={() => { setDisliked(!disliked); setLiked(false); }}
+                onClick={() => {
+                  setDisliked(!disliked);
+                  setLiked(false);
+                }}
                 className="hover:bg-gray-800 px-3 py-2 rounded-full transition group"
               >
-                <ThumbsDown size={20} className={disliked ? "fill-white" : "group-hover:fill-gray-500"} />
+                <ThumbsDown
+                  size={20}
+                  className={disliked ? "fill-white" : "group-hover:fill-gray-500"}
+                />
               </button>
 
               <button className="flex items-center gap-2 hover:bg-gray-800 px-3 py-2 rounded-full transition group">
@@ -286,12 +217,20 @@ export default function VideoPage() {
               <span>{video.uploadDate}</span>
             </div>
 
-            <div className={`text-sm text-gray-300 ${isDescriptionExpanded ? "" : "line-clamp-3"}`}>
+            <div
+              className={`text-sm text-gray-300 ${
+                isDescriptionExpanded ? "" : "line-clamp-3"
+              }`}
+            >
               {/* H3 title inside description */}
-              <h3 className="text-white font-semibold text-base mb-2">{video.title}</h3>
+              <h3 className="text-white font-semibold text-base mb-2">
+                {video.title}
+              </h3>
 
               {/* Description text with clickable links */}
-              <p className="mb-3">{video.description && renderDescription(video.description)}</p>
+              <p className="mb-3">
+                {video.description && renderDescription(video.description)}
+              </p>
 
               {/* Website link */}
               {video.website && (
@@ -324,17 +263,17 @@ export default function VideoPage() {
         </div>
 
         <div className="w-[20%] flex flex-col">
-          {relatedVideos.map((video) => (
+          {relatedVideos.map((related) => (
             <div
-              key={video.id}
-              onClick={() => router.push(`/VideoPage/${video.id}`)}
+              key={related.id}
+              onClick={() => router.push(`/VideoPage/${related.id}`)}
             >
               <div className="flex flex-row">
                 <RecommendedVideoCard
-                  title={video.title}
-                  channel={video.channel}
-                  views={video.views}
-                  thumbnail={video.thumbnail}
+                  title={related.title}
+                  channel={related.channel}
+                  views={related.views}
+                  thumbnail={thumbnailUrl(related)}
                 />
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z" />

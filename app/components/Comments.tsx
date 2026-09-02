@@ -2,6 +2,11 @@
 
 import { useEffect, useState } from "react";
 import { MoreVertical, ThumbsUp, ThumbsDown } from "lucide-react";
+import { MEDIA_BASE } from "@/app/data/videos";
+
+let __id = 0;
+const uid = () => `c${++__id}`;
+
 
 type Comment = {
   id: string;
@@ -15,17 +20,17 @@ type Comment = {
 };
 
 const avatars = [
-  "https://metubebucketcf.s3.us-east-2.amazonaws.com/baddie-pfp.jpg", //0
-  "https://metubebucketcf.s3.us-east-2.amazonaws.com/pfp-mona-lisa.avif",//1
-  "https://metubebucketcf.s3.us-east-2.amazonaws.com/pfp-chill-guy.png",//2
-  "https://metubebucketcf.s3.us-east-2.amazonaws.com/pfp-ryangosling.jpg",//3
-  "https://metubebucketcf.s3.us-east-2.amazonaws.com/pfp-cat.webp",//4
-  "https://metubebucketcf.s3.us-east-2.amazonaws.com/fish-eye-pfp.avif",//5
-  "https://metubebucketcf.s3.us-east-2.amazonaws.com/dreadhead-pfp.webp",//6
-  "https://metubebucketcf.s3.us-east-2.amazonaws.com/bunny-pfp.jpg",//7
-  "https://metubebucketcf.s3.us-east-2.amazonaws.com/pfp-patrick.jpg",//8
-  "https://metubebucketcf.s3.us-east-2.amazonaws.com/pfp-roblox-1.jpg",//9
-  "https://metubebucketcf.s3.us-east-2.amazonaws.com/pfp-lil-dude.png",//10
+  `${MEDIA_BASE}/pfps/baddie-pfp.jpg`,      //0
+  `${MEDIA_BASE}/pfps/pfp-mona-lisa.avif`,  //1
+  `${MEDIA_BASE}/pfps/pfp-chill-guy.png`,   //2
+  `${MEDIA_BASE}/pfps/pfp-ryangosling.jpg`, //3
+  `${MEDIA_BASE}/pfps/pfp-cat.webp`,        //4
+  `${MEDIA_BASE}/pfps/fish-eye-pfp.avif`,   //5
+  `${MEDIA_BASE}/pfps/dreadhead-pfp.webp`,  //6
+  `${MEDIA_BASE}/pfps/bunny-pfp.jpg`,       //7
+  `${MEDIA_BASE}/pfps/pfp-patrick.jpg`,     //8
+  `${MEDIA_BASE}/pfps/pfp-roblox-1.jpg`,    //9
+  `${MEDIA_BASE}/pfps/pfp-lil-dude.png`,    //10
 ];
 
 const guestAvatar =
@@ -33,7 +38,7 @@ const guestAvatar =
 
 const seedComments: Comment[] = [
   {
-    id: crypto.randomUUID(),
+    id: uid(),
     user: "@cambiggestfan",
     avatar: avatars[0],
     date: "2 days ago",
@@ -43,7 +48,7 @@ const seedComments: Comment[] = [
     replies: [],
   },
   {
-    id: crypto.randomUUID(),
+    id: uid(),
     user: "@nightowl_dev",
     avatar: avatars[1],
     date: "1 day ago",
@@ -52,7 +57,7 @@ const seedComments: Comment[] = [
     dislikes: 2,
     replies: [
       {
-        id: crypto.randomUUID(),
+        id: uid(),
         user: "@cambiggestfan",
         avatar: avatars[0],
         date: "22 hours ago",
@@ -64,7 +69,7 @@ const seedComments: Comment[] = [
     ],
   },
   {
-    id: crypto.randomUUID(),
+    id: uid(),
     user: "@latebutwatching",
     avatar: avatars[10],
     date: "3 days ago",
@@ -76,7 +81,7 @@ I forgot the rest.`,
     replies: [],
   },
   {
-    id: crypto.randomUUID(),
+    id: uid(),
     user: "@framebyframe",
     avatar: avatars[4],
     date: "4 days ago",
@@ -86,7 +91,7 @@ I forgot the rest.`,
     replies: [],
   },
   {
-    id: crypto.randomUUID(),
+    id: uid(),
     user: "@audiohead99",
     avatar: avatars[5],
     date: "5 days ago",
@@ -98,7 +103,7 @@ Is this even legal!? Hello?!?!?!`,
     replies: [],
   },
   {
-    id: crypto.randomUUID(),
+    id: uid(),
     user: "@casualviewer",
     avatar: avatars[6],
     date: "6 days ago",
@@ -108,7 +113,7 @@ Is this even legal!? Hello?!?!?!`,
     replies: [],
   },
   {
-    id: crypto.randomUUID(),
+    id: uid(),
     user: "@deepcut",
     avatar: avatars[7],
     date: "1 week ago",
@@ -118,7 +123,7 @@ Is this even legal!? Hello?!?!?!`,
     replies: [],
   },
   {
-    id: crypto.randomUUID(),
+    id: uid(),
     user: "@rewatchclub",
     avatar: avatars[9],
     date: "1 week ago",
@@ -128,7 +133,7 @@ Is this even legal!? Hello?!?!?!`,
     replies: [],
   },
   {
-    id: crypto.randomUUID(),
+    id: uid(),
     user: "@minimalcuts",
     avatar: avatars[8],
     date: "8 days ago",
@@ -136,7 +141,7 @@ Is this even legal!? Hello?!?!?!`,
     likes: 177,
     dislikes: 1,
     replies: [{
-        id: crypto.randomUUID(),
+        id: uid(),
         user: "@cambiggestfan",
         avatar: avatars[0],
         date: "22 hours ago",
@@ -147,7 +152,7 @@ Is this even legal!? Hello?!?!?!`,
       },],
   },
   {
-    id: crypto.randomUUID(),
+    id: uid(),
     user: "@mikehwak",
     avatar: avatars[2],
     date: "9 days ago",
@@ -155,7 +160,7 @@ Is this even legal!? Hello?!?!?!`,
     likes: 301,
     dislikes: 6,
     replies: [{
-        id: crypto.randomUUID(),
+        id: uid(),
         user: "@cambiggestfan",
         avatar: avatars[0],
         date: "22 hours ago",
@@ -166,7 +171,7 @@ Is this even legal!? Hello?!?!?!`,
       },],
   },
   {
-    id: crypto.randomUUID(),
+    id: uid(),
     user: "@justpassingthru",
     avatar: avatars[3],
     date: "10 days ago",
@@ -176,7 +181,7 @@ Is this even legal!? Hello?!?!?!`,
     replies: [],
   },
   {
-    id: crypto.randomUUID(),
+    id: uid(),
     user: "@cambiggestfan",
     avatar: avatars[0],
     date: "11 days ago",
@@ -340,7 +345,7 @@ export default function CommentSection() {
             replies: [
               ...c.replies,
               {
-                id: crypto.randomUUID(),
+                id: uid(),
                 user: "@Cam",
                 avatar: "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg",
                 date: "Just now",
@@ -368,7 +373,7 @@ export default function CommentSection() {
     if (!newComment.trim()) return;
 
     const comment: Comment = {
-      id: crypto.randomUUID(),
+      id: uid(),
       user: "@Cam",
       avatar: "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg",
       date: "Just now",

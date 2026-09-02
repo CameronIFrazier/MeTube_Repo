@@ -1,0 +1,68 @@
+[
+  {
+    "id": "1",
+    "title": "Beginner Projects of Mine",
+    "videoKey": "videos/beginner-projects-demo-vid.mp4",
+    "thumbnailKey": "thumbnails/mrc-thumbnail.png",
+    "channel": "Cam",
+    "views": 450145,
+    "uploadDate": "2 weeks ago",
+    "description": "Heres a short compilation of some beginner projects I've done. Looking back, I deffinetly could've done better, but I'm still very proud of them considering they were made just after knowing react for around a week.",
+    "website": ""
+  },
+  {
+    "id": "2",
+    "title": "Concert I went to on my Honeymoon",
+    "videoKey": "videos/IMG_1107.mp4",
+    "thumbnailKey": "thumbnails/IMG_1098.jpg",
+    "channel": "Cam",
+    "views": 950000,
+    "uploadDate": "8 months ago",
+    "description": "My first large concert, the marias. So much fun! We went on our last day of our honeymoon in San Francisco.",
+    "website": ""
+  },
+  {
+    "id": "3",
+    "title": "My expense tracker app",
+    "videoKey": "videos/expense-tracker-demo.mp4",
+    "thumbnailKey": "thumbnails/expense-tracker-demo-thumbnail.png",
+    "channel": "Cam",
+    "views": 33782,
+    "uploadDate": "1 year ago",
+    "description": "A somewhat intermediate level project I made to learn API calls and understand more backend development. Also, I added the Financial Advisor feature because I wanted to learn how to integrate AI into my projects. Was a great learning experience overall. Oh and I haven't added audio yet to record my voice as I need a new microphone currently.",
+    "website": "https://expense-tracker-repo-ivory.vercel.app/"
+  },
+  {
+    "id": "4",
+    "title": "My Full stack social media app",
+    "videoKey": "videos/leftovers-demo.mp4",
+    "thumbnailKey": "thumbnails/leftovers-demo-thumbnail.png",
+    "channel": "Cam",
+    "views": 1000000,
+    "uploadDate": "6 months ago",
+    "description": "My full stack social media app using nextjs, railway, mysql, and vercel. Oh and I haven't added audio yet to record my voice as I need a new microphone currently.",
+    "website": "https://leftoversnextjs-qebo.vercel.app/"
+  },
+  {
+    "id": "5",
+    "title": "Full stack banking application",
+    "videoKey": "videos/watergate-demo-vid.mp4",
+    "thumbnailKey": "thumbnails/watergate-demo-thumbnail.png",
+    "channel": "Cam",
+    "views": 63597,
+    "uploadDate": "9 months ago",
+    "description": "My full stack banking application using nodejs with vite, railway, mysql, and vercel. Oh and I haven't added audio yet to record my voice as I need a new microphone currently.",
+    "website": "https://watergate-repo-7ofd.vercel.app/"
+  },
+  {
+    "id": "6",
+    "title": "Work Experience: Dr Clean House",
+    "videoKey": "videos/cleaning-website-demo.mp4",
+    "thumbnailKey": "thumbnails/cleaning-website-thumbnail.png",
+    "channel": "Cam",
+    "views": 94859,
+    "uploadDate": "9 months ago",
+    "description": "This is a live production website currently used by a local cleaning company in my area (fontana). It has everything that a professional cleaning service would need to display, as well as a working email form at the bottom. The video might be a bit slow due to performance issues with my pc, for that I apologize. Link to the website below.",
+    "website": "https://humberto-alpha.vercel.app/"
+  }
+]
