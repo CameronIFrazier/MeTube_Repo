@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { MoreVertical, ThumbsUp, ThumbsDown } from "lucide-react";
 import { MEDIA_BASE } from "@/app/data/videos";
-
+import { CHANNEL_PFP } from "../data/videos";
 let __id = 0;
 const uid = () => `c${++__id}`;
 
@@ -257,7 +257,7 @@ const CommentItem = ({
 
       {activeReplyId === c.id && (
         <div className="mt-3 flex gap-3">
-          <img src={"https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg"} className="w-10 h-10 rounded-full flex-shrink-0" />
+          <img src={CHANNEL_PFP} className="w-10 h-10 rounded-full flex-shrink-0" />
           <div className="flex-1">
             <textarea
               rows={2}
@@ -347,7 +347,7 @@ export default function CommentSection() {
               {
                 id: uid(),
                 user: "@Cam",
-                avatar: "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg",
+                avatar: CHANNEL_PFP,
                 date: "Just now",
                 text,
                 likes: 0,
@@ -375,7 +375,7 @@ export default function CommentSection() {
     const comment: Comment = {
       id: uid(),
       user: "@Cam",
-      avatar: "https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg",
+      avatar: CHANNEL_PFP,
       date: "Just now",
       text: newComment,
       likes: 0,
@@ -394,7 +394,7 @@ export default function CommentSection() {
       </h2>
 
       <div className="flex gap-3 mb-8 pb-6 border-b border-gray-700">
-        <img src={"https://metubebucketcf.s3.us-east-2.amazonaws.com/userpfp.jpg"} className="w-10 h-10 rounded-full flex-shrink-0" />
+        <img src={CHANNEL_PFP} className="w-10 h-10 rounded-full flex-shrink-0" />
         <div className="flex-1">
           <textarea
             rows={1}

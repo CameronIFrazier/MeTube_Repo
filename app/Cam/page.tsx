@@ -2,7 +2,7 @@
 
 import SearchBarArea from "../components/SearchBarArea";
 import VideoCard from "../components/VideoCard";
-import { videos, thumbnailUrl, CHANNEL_PFP, MEDIA_BASE } from "../data/videos";
+import { videos, thumbnailUrl, CHANNEL_PFP, MEDIA_BASE, resume } from "../data/videos";
 
 export default function CamPage() {
   return (
@@ -43,9 +43,7 @@ export default function CamPage() {
               <button className="bg-[#272727] text-gray-100 px-4 py-2.5 rounded-full text-sm cursor-pointer hover:bg-[#3f3f3f] transition">
                 Join
               </button>
-              <button className="bg-[#272727] text-gray-100 px-4 py-2.5 rounded-full text-sm cursor-pointer hover:bg-[#3f3f3f] transition">
-                Like
-              </button>
+              
             </div>
           </div>
         </div>
@@ -82,7 +80,7 @@ export default function CamPage() {
 
         <div className="relative w-full aspect-[16/9] overflow-hidden rounded-lg">
           <iframe
-            src={`${MEDIA_BASE}/resume.pdf`}
+            src={resume}
             className="w-full h-full pb-8"
             title="Resume"
           />

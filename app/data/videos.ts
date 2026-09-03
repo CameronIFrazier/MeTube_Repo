@@ -9,6 +9,8 @@ export const MEDIA_BASE = "https://mytubebucket2.s3.us-east-1.amazonaws.com";
 // folder — I've assumed .jpg. If it's .png/.webp/.avif etc., change it here.
 export const CHANNEL_PFP = `${MEDIA_BASE}/pfps/weddingpfp.JPG`;
 
+export const resume = `${MEDIA_BASE}/resume/resume`;
+
 export type Video = {
   id: string;
   title: string;
